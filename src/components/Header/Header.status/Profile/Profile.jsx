@@ -22,12 +22,12 @@ function ExitButton() {
 
 const Profile = () => {
   return (
-    <div className='NewAvatar'> {/* Измененное название класса */}
-      <div className='NewAvatarContent'> {/* Измененное название класса */}
+    <div className='NewAvatar'>
+      <div className='NewAvatarContent'> 
         <span>Алексей К.</span>
         <ExitButton />
       </div>
-      <div className='NewAvatarImg'> {/* Измененное название класса */}
+      <div className='NewAvatarImg'> 
         <img src={avatar} alt='avatar' />
       </div>
     </div>

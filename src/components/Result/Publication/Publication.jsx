@@ -1,5 +1,3 @@
-// Компонент отображения результатов публикаций
-
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDocuments } from '../../Requests/histograms';
@@ -19,7 +17,7 @@ const PublicationCards = () => {
 
   useEffect(() => {
     if (publicationIds.length) {
-      // Вызываем действие для очистки данных
+      
       dispatch(dropDocumentsInfo());
 
       const idsForRequest = publicationIds.slice(offSet, offSet + 10);
@@ -27,7 +25,7 @@ const PublicationCards = () => {
         dispatch(getDocuments({ ids: idsForRequest }));
       }
     }
-  }, [publicationIds, dispatch, offSet, dropDocumentsInfo]); // Добавляем действие в массив зависимостей
+  }, [publicationIds, dispatch, offSet, dropDocumentsInfo]); 
 
   if (!documents.length) {
     return null;

@@ -1,26 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Style/Header.Login.css';
 import { getCompanyInfo } from '../../Requests/profile';
-import Whait from '../Media/whait.svg'
+import Wait from '../Media/whait.svg';
 
 const Login = () => {
   const companyQuantityInfo = useSelector(state => state.profile.companyInfo);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); 
+
+    return () => clearTimeout(timer); 
+  }, []);
 
   useEffect(() => {
     if (!companyQuantityInfo) {
-      dispatch(getCompanyInfo());
+      const fetchData = async () => {
+        await new Promise(resolve => setTimeout(resolve, 5000)); 
+        setIsLoading(false);
+        dispatch(getCompanyInfo());
+      };
+      fetchData();
     }
   }, [companyQuantityInfo, dispatch]);
 
-  if (!companyQuantityInfo) {
-    return <div className='Load'><img src={Whait} alt='Load' /></div>; 
+  if (isLoading || !companyQuantityInfo) {
+    return (
+      <div className='Load'>
+        <img className='Img_load' src={Wait} alt='Load' />
+      </div>
+    ); 
   }
 
   console.log('Использовано компаний:', companyQuantityInfo.eventFiltersInfo.usedCompanyCount);
   console.log('Лимит по компаниям:', companyQuantityInfo.eventFiltersInfo.companyLimit);
-
 
   return (
     <div className='NewCompanyBox'> 

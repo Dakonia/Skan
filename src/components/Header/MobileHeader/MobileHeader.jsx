@@ -24,7 +24,7 @@ function LoginButton() {
   }
 
   return (
-    <button className='NewButton' type="button" onClick={handleClick}> 
+    <button className='NewButton' type="button" onClick={handleClick} style={{ backgroundColor: companyInfo ? '#7CE3E1' : '#7CE3E1' }}>
       {TitleButton}
     </button>
   );

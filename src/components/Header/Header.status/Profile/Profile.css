@@ -1,5 +1,6 @@
 .NewAvatar{
     display: flex;
+    margin-top: 25px;
 }
 .NewAvatarContent{
     display: flex;
@@ -21,3 +22,10 @@
 .NewAvatarImg{
     margin: 5px 0 0 5px;
 }
+
+@media screen and (max-width: 950px) {
+    .NewAvatar {
+      display: none;
+    }
+  }
+  

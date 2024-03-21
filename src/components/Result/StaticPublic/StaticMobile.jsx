@@ -52,7 +52,7 @@ const StaticMobile = () => {
         prevArrow: <LeftArrow />,
     };
 
-    // Условный рендеринг: если есть только один элемент, не отображаем слайдер
+    
     if (!summary || summary.length === 1) {
         return (
             <div className='blockMobile' >

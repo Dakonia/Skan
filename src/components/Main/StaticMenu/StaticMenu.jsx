@@ -68,7 +68,7 @@ const StaticMenu = () => {
             <div>
               <div className="Static_card">
                 <img className="card_img" src={clock} alt='clock' />
-                <section className="Static_section">Высокая и оперативная скорость обработки заявки</section>
+                <section className="Static_section">Наше лучшее качество это наша скорость</section>
               </div>
             </div>         
           </Slider>

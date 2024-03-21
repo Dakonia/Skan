@@ -48,7 +48,7 @@
 .NewForm_nopass{
     margin-top: 15px;
     color: #5970FF;
-    cursor: pointer; /* Добавлен cursor: pointer */
+    cursor: pointer; 
     font-size: 14px;
     letter-spacing: 2%;
 }
