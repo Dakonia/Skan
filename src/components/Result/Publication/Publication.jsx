@@ -17,7 +17,7 @@ const PublicationCards = () => {
 
   useEffect(() => {
     if (publicationIds.length) {
-      
+
       dispatch(dropDocumentsInfo());
 
       const idsForRequest = publicationIds.slice(offSet, offSet + 10);
@@ -25,7 +25,7 @@ const PublicationCards = () => {
         dispatch(getDocuments({ ids: idsForRequest }));
       }
     }
-  }, [publicationIds, dispatch, offSet, dropDocumentsInfo]); 
+  }, [publicationIds, dispatch, offSet, dropDocumentsInfo]);
 
   if (!documents.length) {
     return null;
@@ -51,6 +51,7 @@ const PublicationCards = () => {
             {obj.articleTags && obj.articleTags.map(tag => (
               <Badge bg="warning" text="dark" key={tag}>{tag}</Badge>
             ))}
+            {!obj.articleTags && <Badge bg="warning" text="dark">Тег не найден</Badge>}
             {obj.imageUrl && <img className='publication_img' src={obj.imageUrl} alt='article pic' />}
             <div dangerouslySetInnerHTML={{ __html: obj.articleContent }} />
             <div className='publication_button'>

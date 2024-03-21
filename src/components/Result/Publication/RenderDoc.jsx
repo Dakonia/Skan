@@ -1,18 +1,18 @@
 export const convertDocObjectToCard = (docs) => {
   return docs.map(doc => {
-      console.log("Document attributes:", doc.ok.attributes);
-      const customDate = new Date(doc.ok.issueDate)
-      const formatDate = `${customDate.getDate()}.${customDate.getMonth()}.${customDate.getFullYear()}`
-      return {
-          date:formatDate,
-          articleUrl:doc.ok.url,
-          articleUrlTitle:doc.ok.source.name,
-          articleTitle:doc.ok.title.text,
-          articleTags: getArtTags(doc.ok.attributes),
-          articleContent:parseXml(doc.ok.content.markup),
-          imageUrl:parseImageUrl(doc.ok.content.markup),
-          wordCount: doc.ok.attributes.wordCount
-      }
+    console.log("Document attributes:", doc.ok.attributes);
+    const customDate = new Date(doc.ok.issueDate)
+    const formatDate = `${customDate.getDate()}.${customDate.getMonth()}.${customDate.getFullYear()}`
+    return {
+      date: formatDate,
+      articleUrl: doc.ok.url,
+      articleUrlTitle: doc.ok.source.name,
+      articleTitle: doc.ok.title.text,
+      articleTags: getArtTags(doc.ok.attributes),
+      articleContent: parseXml(doc.ok.content.markup),
+      imageUrl: parseImageUrl(doc.ok.content.markup),
+      wordCount: doc.ok.attributes.wordCount
+    }
   })
 }
 const imgParseRegExp = /<img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gm
